@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html --open"
+    "start": "parcel index.html --open",
+    "e2e": "cypress open"
   },
   "keywords": [],
   "author": "Jeff Storey <jeffreys@verizonmedia.com>",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^7.7.0",
     "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
