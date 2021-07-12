@@ -12,12 +12,25 @@
   "author": "Jeff Storey <jeffreys@verizonmedia.com>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-react": "^7.14.5",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
     "cypress": "^7.7.0",
+    "enzyme": "^3.11.0",
+    "eslint-config-codingitwrong": "^0.1.4",
     "jest": "^27.0.6",
+    "jsdom": "^16.6.0",
+    "jsdom-global": "^3.0.2",
     "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>test/setup.js"
+    ]
   }
 }
