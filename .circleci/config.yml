@@ -10,6 +10,11 @@ jobs:
     working_directory: ~/GoEats
     steps:
       - checkout
+      - save_cache:
+          paths:
+            - ~/.npm
+            - ~/.cache
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }} 
       - run: npm install -g wait-on
       - run: npm run start & wait-on http://localhost:1234
       - run: $(npm bin)/cypress run
