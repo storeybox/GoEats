@@ -22,4 +22,4 @@ jobs:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }} 
       - run: npm install -g wait-on
       - run: ls
-      - run: cypress.sh 
+      - run: ./cypress.sh 
