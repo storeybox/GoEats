@@ -5,8 +5,8 @@ const NewRestaurantForm = ({ onSave }) => {
     const [inputText, setInputText] = useState("");
 
     return (
-        <div>
-            <div className="input-field">
+        <div className="row">
+            <div className="input-field col s12 m10">
 
             <input
                 id="RestaurantName"

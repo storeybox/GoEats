@@ -11,15 +11,18 @@ const RestaurantListPage = () => {
     }
 
     return (
-        <div>
+        <div className="container">
             <button
                 className="waves-effect waves-light btn-small"
                 onClick={() => setShowNewRestaurantForm(true)}
                 data-test="addRestaurantButton">
                 Add Restaurant
                 </button>
-            {showNewRestaurantForm ? <NewRestaurantForm onSave={handleSave} /> : null }
-            {restaurantList.map((restaurant, index) => <p key={index}>{restaurant}</p>)}
+            {showNewRestaurantForm ? <NewRestaurantForm onSave={handleSave} /> : null}
+            <ul className="collection with-header">
+                <li className="collection-header"><h4>Restaurants</h4></li>
+            {restaurantList.map((restaurant, index) => <li className="collection-item" key={index}>{restaurant}</li>)}
+            </ul>
         </div>
     )
 }
