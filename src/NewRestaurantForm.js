@@ -6,12 +6,18 @@ const NewRestaurantForm = ({ onSave }) => {
 
     return (
         <div>
+            <div className="input-field">
+
             <input
+                id="RestaurantName"
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                data-test="newRestaurantName" />
+                    data-test="newRestaurantName" />
+                <label htmlFor="RestaurantName">Restaurant Name</label>
+            </div>
             <button
+                className="waves-effect waves-light btn-small"
                 data-test="saveNewRestaurantButton"
                 onClick={() => onSave(inputText)}
             >

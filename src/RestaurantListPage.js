@@ -13,6 +13,7 @@ const RestaurantListPage = () => {
     return (
         <div>
             <button
+                className="waves-effect waves-light btn-small"
                 onClick={() => setShowNewRestaurantForm(true)}
                 data-test="addRestaurantButton">
                 Add Restaurant
