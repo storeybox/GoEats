@@ -1,11 +1,17 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
-orbs:
-  cypress: cypress-io/cypress@1
-
-workflows:
+jobs:
   build:
-    jobs:
-      - cypress/run
+    docker:
+      - image: cypress/base:14.16.0
+        environment:
+          TERM: xterm
+    steps:
+      - checkout
+      - run: npm install -g wait-on
+      - run: npm run start & wait-on http://localhost:1234
+      - run: $(npm bin)/cypress run
+
+
       
