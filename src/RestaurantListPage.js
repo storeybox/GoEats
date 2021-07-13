@@ -11,15 +11,9 @@ const RestaurantListPage = () => {
         setRestaurantList([...restaurantList, name]);
     }
 
-    return (
-        <div className="container">
-            <button
-                className="waves-effect waves-light btn-small"
-                onClick={() => setShowNewRestaurantForm(true)}
-                data-test="addRestaurantButton">
-                Add Restaurant
-                </button>
-            {showNewRestaurantForm ? (
+    const renderRestaurantForm = () => {
+        if (showNewRestaurantForm) {
+            return (
                 <ModalWrapper>
                     <ModalCard>
                     <CancelButton onClick={() => setShowNewRestaurantForm(false)}>Cancel</CancelButton>
@@ -27,7 +21,19 @@ const RestaurantListPage = () => {
                     </ModalCard>
                     <Background onClick={() => setShowNewRestaurantForm(false)} />
                 </ModalWrapper>
-            ) : null}
+            );
+        }
+        return null;
+    }
+    return (
+        <div className="container">
+            <button
+                className="waves-effect waves-light btn-small"
+                onClick={() => setShowNewRestaurantForm(true)}
+                data-test="addRestaurantButton">
+                Add Restaurant
+            </button>
+            {renderRestaurantForm()}
             <ul className="collection with-header">
                 <li className="collection-header"><h4>Restaurants</h4></li>
             {restaurantList.map((restaurant, index) => <li className="collection-item" key={index}>{restaurant}</li>)}
