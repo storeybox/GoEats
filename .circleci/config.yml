@@ -21,5 +21,7 @@ jobs:
             - ~/.cache
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }} 
       - run: npm install -g wait-on
-      - run: npm run start && wait-on http://localhost:1234
-      - run: $(npm bin)/cypress run
+      - run:
+          command: npm start
+          background: true
+      - run: npm run e2e
